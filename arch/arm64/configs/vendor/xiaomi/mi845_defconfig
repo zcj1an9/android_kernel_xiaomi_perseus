@@ -672,3 +672,4 @@ CONFIG_SOUNDWIRE=y
 CONFIG_WCD_SPI_AC=y
 CONFIG_IKHEADERS=y
 CONFIG_LSM="lockdown,yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor,bpf"
+CONFIG_SECURITY_DMESG_RESTRICT=y
