@@ -378,8 +378,8 @@ static unsigned long total_mapping_size(const struct elf_phdr *phdr, int nr)
 
 	for (i = 0; i < nr; i++) {
 		if (phdr[i].p_type == PT_LOAD) {
-			min_addr = min(min_addr, ELF_PAGESTART(phdr[i].p_vaddr));
-			max_addr = max(max_addr, phdr[i].p_vaddr + phdr[i].p_memsz);
+			min_addr = min_t(elf_addr_t, min_addr, ELF_PAGESTART(phdr[i].p_vaddr));
+			max_addr = max_t(elf_addr_t, max_addr, phdr[i].p_vaddr + phdr[i].p_memsz);
 			pt_load = true;
 		}
 	}
