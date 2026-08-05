@@ -60,7 +60,7 @@ static int erofs_fill_dentries(struct inode *dir, struct dir_context *ctx,
 			de_namelen = strnlen(de_name, maxsize - nameoff);
 
 		/* a corrupted entry is found (including negative namelen) */
-		if (!in_range32(de_namelen, 1, EROFS_NAME_LEN) ||
+		if ((de_namelen - 1) >= EROFS_NAME_LEN ||
 		    nameoff + de_namelen > maxsize)
 			goto err_bogus;
 
